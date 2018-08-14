@@ -59,6 +59,11 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
 
 
   @include('inc.footer')
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <!-- BEGIN VENDOR JS-->
   <script src="{{asset('app-assets/vendors/js/vendors.min.js')}}" type="text/javascript"></script>
   <!-- BEGIN VENDOR JS-->
@@ -76,5 +81,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
   <!-- BEGIN PAGE LEVEL JS-->
   <script src="{{asset('app-assets/js/scripts/pages/dashboard-ecommerce.min.js')}}" type="text/javascript"></script>
   <!-- END PAGE LEVEL JS-->
+
+
 </body>
 </html>
