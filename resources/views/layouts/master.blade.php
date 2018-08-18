@@ -58,6 +58,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
 
 
 
+
   @include('inc.footer')
 
 
@@ -81,6 +82,89 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
   <!-- BEGIN PAGE LEVEL JS-->
   <script src="{{asset('app-assets/js/scripts/pages/dashboard-ecommerce.min.js')}}" type="text/javascript"></script>
   <!-- END PAGE LEVEL JS-->
+
+
+  <script type="text/javascript">
+          //Insert Ajax
+
+
+          $(document).ready(function(){
+        $("#test").mouseenter(function(){
+            alert("You entered p1!");
+        });
+
+    });
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+    <script type="text/javascript">
+            //Insert Ajax
+
+
+           $(document).ready(function(){
+            $('#test').click(function(){
+
+              alert("You entered p1!");
+            });
+          });
+            $('#insert').click(function(){
+                     $.ajax({
+                          type:'post',
+                          url:'store_student'
+                          data:{
+                            '_token':$('input[name=_token]').val(),
+                            'email':$('input[name=email').val(),
+                            'password':$('input[name=password').val(),
+                            'student_id':$('input[name=student_id').val(),
+                            'idfirst':$('input[name=idfirst').val(),
+                            'idsecond':$('input[name=idsecond').val(),
+                            'idthird':$('input[name=idthird').val(),
+                            'fname':$('input[name=fname').val(),
+                            'mname':$('input[name=mname').val(),
+                            'lname':$('input[name=lname').val()
+                          },
+                          success:function(data)
+                          {
+
+                            if ((data.errors)) {
+
+                            }
+
+
+
+                            $('.error').remove();
+                            $('#table').append("<tr class='post" + data.student_id + "'>"+
+                            "<td>" + data.student_id + "</td>"+
+                            "<td>" + data.lname+", "+ data.fname+" "+ data.mname + "</td>"+
+                            "<td>" + data.email + "</td>"+
+                            "<td>" + data.created_at + "</td>"+
+                            "<td><button class='show-modal btn btn-info btn-sm' data-id='" + data.student_id + "'><span class='fa fa-eye'></span></button> <button class='edit-modal btn btn-warning btn-sm' data-id='" + data.id + "' data-title='" + data.title + "' data-body='" + data.body + "'><span class='glyphicon glyphicon-pencil'></span></button> <button class='delete-modal btn btn-danger btn-sm' data-id='" + data.id + "' data-title='" + data.title + "' data-body='" + data.body + "'><span class='glyphicon glyphicon-trash'></span></button></td>"+
+                            "</tr>");
+                          },
+
+                     });
+
+
+
+            });
+
+
+
+
+
+    </script>
+
+
 
 
 </body>

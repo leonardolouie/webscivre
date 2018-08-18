@@ -47,11 +47,11 @@
         'body': $('input[name=body]').val()
       },
       success: function(data){
-        if ((data.errors)) {
-          $('.error').removeClass('hidden');
-          $('.error').text(data.errors.title);
-          $('.error').text(data.errors.body);
-        } else {
+          if ((data.errors)) {
+            $('.error').removeClass('hidden');
+            $('.error').text(data.errors.title);
+            $('.error').text(data.errors.body);
+          } else {
           $('.error').remove();
           $('#table').append("<tr class='post" + data.id + "'>"+
           "<td>" + data.id + "</td>"+
