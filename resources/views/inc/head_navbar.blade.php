@@ -8,8 +8,8 @@
           <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
           <li class="nav-item">
             <a class="navbar-brand" href="index-2.html">
-              <img class="brand-logo" alt="stack admin logo" src="{{asset('app-assets/images/logo/stack-logo.png')}}">
-              <h2 class="brand-text">Stack</h2>
+              <img class="brand-logo" alt="SCIVRE" src="">
+              <h2 class="brand-text">SCIVRE</h2>
             </a>
           </li>
           <li class="nav-item d-md-none">

@@ -43,7 +43,7 @@
                         <a class="logo" href="index.html">
                             <img src="images/icon/logo.png" alt="CoolAdmin" />
                         </a>
-                        <button class="hamburger hamburger--slider" type="button">
+                        <button class="hamburger hamburgerslider" type="button">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
                             </span>

@@ -53,24 +53,6 @@
       <div class="form-group col-md-2">
         <input type="text" class="form-control" id="inputAddress" placeholder="XXXX" name="student_id" maxlength="4" required>
        </div>
-       <div class="cold-md-2">
-        <h2>-</h2>
-       </div>
-        <div class="form-group col-md-2">
-        <input type="text" class="form-control" id="inputAddress" placeholder="XXXX" name="idfirst" maxlength="4" required>
-       </div>
-        <div class="cold-md-2">
-        <h2>-</h2>
-       </div>
-        <div class="form-group col-md-2">
-        <input type="text" class="form-control" id="inputAddress" placeholder="XXXX" name="idsecond" maxlength="4" required>
-       </div>
-        <div class="cold-md-2">
-        <h2>-</h2>
-       </div>
-        <div class="form-group col-md-2">
-        <input type="text" class="form-control" id="inputAddress" placeholder="XXXX" name="idthird" maxlength="4" required>
-       </div>
      </div>
 
   </div>
@@ -92,17 +74,7 @@
 
   </div>
 
-  <div class="row">
-    <div class="col-md-3">
-      <label for="inputState">Grade Level</label>
-      <select id="inputState" class="form-control" name="gradelevel" required>
-        <option value="3">Grade 3</option>
-        <option value="4">Grade 4</option>
-        <option value="5">Grade 5</option>
-        <option value="6">Grade 6</option>
-      </select>
-    </div>
-  </div>
+  
 
   <br>
   <div class="row">
@@ -113,7 +85,6 @@
 </form>
 
 
- <p id="test">TEST </p>
 
 
 
@@ -122,41 +93,90 @@
 </div>
 <hr>
 
-<div class="row">
-
-              <!-- View Data -->
-                            <div class="col-md-12">
-                                <h3 class="title">Recently Added</h3>
-
-                                    <table class="table table-condensed table-responsive">
-                                        <thead style="background-color:white">
-                                            <tr>
-                                                <th>LRN/ID</th>
-                                                <th>Name</th>
-                                                 <th>Email</th>
-                                                <th>Time Created </th>
-                                                <th> Info </th>
-                                            </tr>
-                                        </thead>
-
-                                        <tbody style="background-color: white">
-                                            @foreach($result as $results)
-                                            <tr>
-                                                <td>{{$results->student_id}}</td>
-                                                <td> {{$results->lname.', '.$results->fname.' '. $results->mname}}</td>
-                                                <td> {{$results->email}} </td>
-                                                <td> {{$results->created_at}} </td>
-                                                <td> <button class="btn btn-info btn-md">SHOW</button></td>
-                                                <td> <button href="/{{$results->student_id}}/edit" class="btn btn-danger btn-md">EDIT</button></td>
 
 
-                                            </tr>
-                                               @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
 
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+            //Insert Ajax
+
+
+           $(document).ready(function(){
+            $('#test').click(function(){
+
+              alert("You entered p1!");
+            });
+          });
+            $('#insert').click(function(){
+                     $.ajax({
+                          type:'post',
+                          url:'store_student'
+                          data:{
+                            '_token':$('input[name=_token]').val(),
+                            'email':$('input[name=email').val(),
+                            'password':$('input[name=password').val(),
+                            'student_id':$('input[name=student_id').val(),
+                            'idfirst':$('input[name=idfirst').val(),
+                            'idsecond':$('input[name=idsecond').val(),
+                            'idthird':$('input[name=idthird').val(),
+                            'fname':$('input[name=fname').val(),
+                            'mname':$('input[name=mname').val(),
+                            'lname':$('input[name=lname').val()
+                          },
+                          success:function(data)
+                          {
+
+                            if ((data.errors)) {
+
+                            }
+
+
+
+                            $('.error').remove();
+                            $('#table').append("<tr class='post" + data.student_id + "'>"+
+                            "<td>" + data.student_id + "</td>"+
+                            "<td>" + data.lname+", "+ data.fname+" "+ data.mname + "</td>"+
+                            "<td>" + data.email + "</td>"+
+                            "<td>" + data.created_at + "</td>"+
+                            "<td><button class='show-modal btn btn-info btn-sm' data-id='" + data.student_id + "'><span class='fa fa-eye'></span></button> <button class='edit-modal btn btn-warning btn-sm' data-id='" + data.id + "' data-title='" + data.title + "' data-body='" + data.body + "'><span class='glyphicon glyphicon-pencil'></span></button> <button class='delete-modal btn btn-danger btn-sm' data-id='" + data.id + "' data-title='" + data.title + "' data-body='" + data.body + "'><span class='glyphicon glyphicon-trash'></span></button></td>"+
+                            "</tr>");
+                          },
+
+                     });
+
+
+
+            });
+
+
+
+
+
+    </script>
 
 
 @endsection
