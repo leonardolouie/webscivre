@@ -41,10 +41,10 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
 
 
 
-@include('inc.head_navbar')
+@include('root.inc.head_navbar')
 
 
-  @include('inc.side_navbar')
+  @include('root.inc.side_navbar')
   <div class="app-content content">
     <div class="content-wrapper">
       <div class="content-header row">
@@ -59,7 +59,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
 
 
 
-  @include('inc.footer')
+  @include('root.inc.footer')
 
 
 

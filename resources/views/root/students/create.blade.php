@@ -25,15 +25,15 @@
 
 
 
-<form method="POST" action="store_student">
+<form method="POST" action="create.submit">
   	{{csrf_field()}}
      <label> <h3> Account Information </h3></label>
      <div class ="cold md-6">
      <div class="form-row">
     <div class="form-group col-md-3">
 
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email" name ="email" required>
+      <label for="inputEmail4">Username</label>
+      <input type="text" class="form-control" id="inputEmail4" placeholder="username" name ="username" required>
     </div>
     <div class="form-group col-md-3">
       <label for="inputPassword4">Password</label>
@@ -43,9 +43,9 @@
   <hr>
   <label> <h3> Student Information </h3> </label>
   <div class="row">
-    <div class="form-group col-md-2">
+    <div class="form-group col-md-12">
 
-     <label for="inputAddress">Student ID</label>
+     <label for="inputAddress">Student ID/LRN</label>
       </div>
    </div>
 

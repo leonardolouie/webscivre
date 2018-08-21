@@ -13,20 +13,29 @@
 
 
 
-Route::get('/admin','AdminController@index');
-Route::get('/admin/createstudent','AdminController@students');
-Route::get('/admin/createteacher','AdminController@teachers');
-Route::post('/posts','AdminController@store_student');
 
 
 
-Route::resource('post','PostController');
-Route::POST('addPost','PostController@addPost');
-Route::POST('editPost','PostController@editPost');
-Route::POST('deletePost','PostController@deletePost');
+//Routes for studenst 
 
 
-//CRUD students
-Route::post('/storestudent','AdminController@store_student');
-Route::get('/createstudent', 'AdminController@createstudent');
+Route::namespace('Root')->name('root.')->group(function () {
+	Route::namespace('Auth')->group(function (){
 
+
+
+    Route::get('/login', 'LoginController@showLoginForm')->name('login');
+    Route::post('/login', 'LoginController@login');
+    	});
+
+	Route::middleware('auth')->group(function () {
+		Route::get('/', 'DashboardController@index');
+		Route::prefix('student')->name('student.')->group(function () {
+		 	Route::get('index', 'StudentController@index');
+		 	Route::get('create', 'StudentController@create');
+		 	Route::post('create.submit', 'StudentController@create_submit');
+		});
+	});
+
+
+});
