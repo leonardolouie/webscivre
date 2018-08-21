@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('root.layouts.master')
 
 
 
@@ -26,6 +26,7 @@
 
 
 <form method="POST" action="create.submit">
+ 
   	{{csrf_field()}}
      <label> <h3> Account Information </h3></label>
      <div class ="cold md-6">
@@ -33,7 +34,7 @@
     <div class="form-group col-md-3">
 
       <label for="inputEmail4">Username</label>
-      <input type="text" class="form-control" id="inputEmail4" placeholder="username" name ="username" required>
+      <input type="text" class="form-control" id="inputAddress" placeholder="username" name ="username" required>
     </div>
     <div class="form-group col-md-3">
       <label for="inputPassword4">Password</label>
@@ -50,8 +51,8 @@
    </div>
 
    <div class="row">
-      <div class="form-group col-md-2">
-        <input type="text" class="form-control" id="inputAddress" placeholder="XXXX" name="student_id" maxlength="4" required>
+      <div class="form-group col-md-7">
+        <input type="text" class="form-control" id="inputAddress" placeholder="EXAMPLE:543212212211" name="student_id" maxlength="12" required>
        </div>
      </div>
 

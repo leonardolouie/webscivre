@@ -130,8 +130,7 @@
                   <a href="javascript:void(0)">
                     <div class="media">
                       <div class="media-left">
-                        <span class="avatar avatar-sm avatar-busy rounded-circle">
-                          <img src="../../../app-assets/images/portrait/small/avatar-s-2.png" alt="avatar"><i></i></span>
+                        <h1>{{Auth::user()->name}} </h1>
                       </div>
                       <div class="media-body">
                         <h6 class="media-heading">Bret Lezama</h6>
@@ -145,8 +144,7 @@
                   <a href="javascript:void(0)">
                     <div class="media">
                       <div class="media-left">
-                        <span class="avatar avatar-sm avatar-online rounded-circle">
-                          <img src="../../../app-assets/images/portrait/small/avatar-s-3.png" alt="avatar"><i></i></span>
+                       <h1>{{Auth::user()->name}} </h1>
                       </div>
                       <div class="media-body">
                         <h6 class="media-heading">Carie Berra</h6>
@@ -160,8 +158,7 @@
                   <a href="javascript:void(0)">
                     <div class="media">
                       <div class="media-left">
-                        <span class="avatar avatar-sm avatar-away rounded-circle">
-                          <img src="{{asset('app-assets/images/portrait/small/avatar-s-6.png')}}" alt="avatar"><i></i></span>
+                     
                       </div>
                       <div class="media-body">
                         <h6 class="media-heading">Eric Alsobrook</h6>
@@ -180,14 +177,13 @@
               <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                 <span class="avatar avatar-online">
                   <img src="../../../app-assets/images/portrait/small/avatar-s-1.png" alt="avatar"><i></i></span>
-                <span class="user-name">John Doe</span>
+                <span class="user-name">{{Auth::user()->first_name}}</span>
               </a>
-              <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="user-profile.html"><i class="ft-user"></i> Edit Profile</a>
-                <a class="dropdown-item" href="email-application.html"><i class="ft-mail"></i> My Inbox</a>
-                <a class="dropdown-item" href="user-cards.html"><i class="ft-check-square"></i> Task</a>
-                <a class="dropdown-item" href="chat-application.html"><i class="ft-message-square"></i> Chats</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="login-with-bg-image.html"><i class="ft-power"></i> Logout</a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" > {{Auth::user()->email}}</a>
+                <a class="dropdown-item" href="user-profile.html"><i class="ft-user"></i> Edit Profile</a>
+
+                <a class="dropdown-item"  href="{{route('root.logout')}}"><i class="ft-power"></i> Logout</a>
               </div>
             </li>
           </ul>

@@ -8,66 +8,85 @@
  <div class="content-body">
        
 
+<!--TABLE --> 
 
 
+<div class ="row">
+   <div class="col-12">
+     <div class="card"> 
+      <div class="card-body">
+
+    <div class="row">
+     <div class="left-align col-md-3">
+     <a href="create">
+    <i class="ft-plus"> <h5> Create New Student </h5></i>
+        </a>
+    </div>
+
+  
 
 
-
-              <!-- View Data -->
-                       
-                                  
-  <div class="row">
-          <div class="col-12">
-               <div class="card">
-                       <div class="card-header">                
-						            <li class="nav-item nav-search"><a class="nav-link nav-link-search" href="#"><i class="ficon ft-search"></i></a>
-						              <div class="search-input">
-						                <input class="input" type="text" placeholder="Explore Stack...">
-						              </div>
-						            </li>
-                            <div class="col-md-12">
-                                <h3 class="title">Recently Added</h3>
-
-                                    <table class="table table-condensed table-responsive">
-                                        <thead style="background-color:white">
-                                            <tr>
-                                                <th>LRN/ID</th>
-                                                <th>Name</th>
-                                                <th>Email</th>
-                                                <th>Time Created </th>
-                                                <th>Actions </th>
-                                            </tr>
-                                        </thead>
-
-                                        <tbody style="background-color: white">
-                                            @foreach($result as $results)
-                                            <tr>
-                                                <td>{{$results->student_id}}</td>
-                                                <td> {{$results->firt_name.', '.$results->last_name.' '. $results->middle_name}}</td>
-                                                <td> {{$results->username}} </td>
-                                                <td> {{$results->created_at}} </td>
-                                                <td> <button href=""> <i class="ft-delete" title="edit">  </td>
-                                                
-
-
-                                            </tr>
-                                               @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                            </div>
-                        </div>
-            </div>
   </div>
+         <div class="table-responsive m-t-40">
+
+          <table id="table-students" cellpadding="10"> 
+
+            <thead> 
+              <th>Actions</th>
+              <th>Name</th>
+              <th>Username</th>
+              <th>Created_at</th>
+             
+            </thead>
+
+            <tbody >
+              
+               @foreach($result as $result)
+              <tr> 
+                
+                <td> 
+                     <a href="{{$result->id}}/edit" class="link-edit-student" data-toggle="tooltip" data-orginal-title="Edit">
+                       <i class="ft-edit">  </i>
+                     </a>
+                       <a href=" " class="link-edit-student" data-toggle="tooltip" data-orginal-title="Edit">
+                       
+                       <i class="ft-trash-2">  </i>
+                     </a>
+                        
+                        
+                </td>
+
+                <td>  
+                     {{$result->last_name.", ".$result->first_name." ". $result->middle_name}} </td>
+
+                
+                <td>{{$result->name}}</td>
+                <td> {{$result->created_at}} </td>
+                
+
+               
+
+
+              </tr>
+                    
+                @endforeach
+
+
+            </tbody>
 
 
 
-          </div>
-          
 
 
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
 
+
+</div>
 
 
 

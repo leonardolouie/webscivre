@@ -26,14 +26,17 @@ Route::namespace('Root')->name('root.')->group(function () {
 
     Route::get('/login', 'LoginController@showLoginForm')->name('login');
     Route::post('/login', 'LoginController@login');
+    Route::any('/logout','LoginController@logout')->name('logout');
     	});
 
 	Route::middleware('auth')->group(function () {
-		Route::get('/', 'DashboardController@index');
+		Route::get('/', 'DashboardController@index')->name('dashboard');
 		Route::prefix('student')->name('student.')->group(function () {
 		 	Route::get('index', 'StudentController@index');
 		 	Route::get('create', 'StudentController@create');
-		 	Route::post('create.submit', 'StudentController@create_submit');
+		 	Route::get('{id}/edit', 'StudentController@edit');
+
+		 	Route::post('create.submit', 'StudentController@store');
 		});
 	});
 

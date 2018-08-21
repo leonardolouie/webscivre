@@ -14,7 +14,7 @@ class StudentController extends Controller
    public function index()
     {
 
-        $result = Students::paginate(10);
+        $result = Students::orderBy('student_id', 'DESC')->get();
 
         return view('root.students.index',compact('result'));
    }
@@ -27,7 +27,7 @@ class StudentController extends Controller
 
    }
 
-    public function create_submit(Request $request)
+    public function store(Request $request)
     {
             // Validate and store the blog post...
 
@@ -50,22 +50,42 @@ class StudentController extends Controller
       $student->password= encrypt(request('password'));
       $student->save();
 
-      return redirect('/index');
+      return redirect('student/index');
     }
 
 
-    public function edit($id)
+      public function edit($id)
+      {
+
+      
+         $result = Students::find('student_id',$id);
+        return view('root.students.edit', compact('result'));
+
+
+      }
+
+
+
+
+
+
+    public function update(Request $request,  $id)
     {
-
-          $post = students_infos::find($request('student_id'));
-          $post->fname=request('fname');
-          $post->lname=request('lname');
-          $post->mname=request('mname');
-          $post->email=request('email');
-          $post->save();
+            
 
 
-        return redirect('createstudent');
+            $student = App\Students::find($id);
+            $student->student_id = request('student_id');
+            $student->first_name=request('fname');
+            $student->last_name=request('mname');
+            $student->middle_name=request('lname');
+            $student->name=request('username');
+            $student->password= encrypt(request('password'));
+            $student->save();
+
+
+
+        return redirect('student/index');
 
     }
 

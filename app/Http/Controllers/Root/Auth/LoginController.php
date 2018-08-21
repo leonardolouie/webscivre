@@ -41,7 +41,7 @@ class LoginController extends Controller
 
            // Notify::success(greet(), '');
 
-            return redirect()->route('root.home');
+            return redirect()->route('root.dashboard');
         }
 
         throw ValidationException::withMessages([
