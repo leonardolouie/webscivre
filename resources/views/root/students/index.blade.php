@@ -18,8 +18,8 @@
 
     <div class="row">
      <div class="left-align col-md-3">
-     <a href="create">
-    <i class="ft-plus"> <h5> Create New Student </h5></i>
+     <a href="create" >
+   <h5> Create New Student </h5></i>
         </a>
     </div>
 
@@ -33,9 +33,11 @@
 
             <thead> 
               <th>Actions</th>
+              <th>LRN/STUDENT ID </th>
               <th>Name</th>
               <th>Username</th>
               <th>Created_at</th>
+              <th>Updated_at</th>
              
             </thead>
 
@@ -55,6 +57,7 @@
                         
                         
                 </td>
+                <td>{{$result->id}}</td>
 
                 <td>  
                      {{$result->last_name.", ".$result->first_name." ". $result->middle_name}} </td>
@@ -62,6 +65,7 @@
                 
                 <td>{{$result->name}}</td>
                 <td> {{$result->created_at}} </td>
+                <td>{{$result->updated_at}} </td>
                 
 
                

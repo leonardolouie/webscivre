@@ -63,6 +63,13 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
 
 
 
+
+
+
+  </script>
+
+
+  <script src="https://code.jquery.com/jquery-1.10.2.js" ></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <!-- BEGIN VENDOR JS-->

@@ -36,7 +36,11 @@ Route::namespace('Root')->name('root.')->group(function () {
 		 	Route::get('create', 'StudentController@create');
 		 	Route::get('{id}/edit', 'StudentController@edit');
 
-		 	Route::post('create.submit', 'StudentController@store');
+
+
+		 	Route::POST('{id}/update', 'StudentController@update');
+		 	Route::DELETE('destroy', 'StudentsController@destroy');
+		 	Route::POST('create.submit', 'StudentController@store')->name('create');
 		});
 	});
 

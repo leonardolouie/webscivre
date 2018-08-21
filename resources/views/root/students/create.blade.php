@@ -25,7 +25,7 @@
 
 
 
-<form method="POST" action="create.submit">
+<form method="POST" action="{{route('root.student.create')}}">
  
   	{{csrf_field()}}
      <label> <h3> Account Information </h3></label>
@@ -52,7 +52,7 @@
 
    <div class="row">
       <div class="form-group col-md-7">
-        <input type="text" class="form-control" id="inputAddress" placeholder="EXAMPLE:543212212211" name="student_id" maxlength="12" required>
+        <input type="text" class="form-control" id="inputAddress" placeholder="EXAMPLE:543212212211" name="id" maxlength="12" required>
        </div>
      </div>
 

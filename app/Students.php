@@ -9,5 +9,10 @@ class Students extends Model
     //
 
 
-     protected $fillable=['fname','student_id','idfirst','lname', 'mname','username','password'];
+     protected $fillable=['fname','id','idfirst','lname', 'mname','username','password'];
+
+   
+
 }
+
+

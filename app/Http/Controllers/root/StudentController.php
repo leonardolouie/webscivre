@@ -14,7 +14,9 @@ class StudentController extends Controller
    public function index()
     {
 
-        $result = Students::orderBy('student_id', 'DESC')->get();
+        $result = Students::orderBy('id', 'DESC')->get();
+
+
 
         return view('root.students.index',compact('result'));
    }
@@ -22,7 +24,7 @@ class StudentController extends Controller
    public function create()
    {
 
-
+        
           return view('root.students.create');
 
    }
@@ -33,7 +35,7 @@ class StudentController extends Controller
 
      $request->validate([
 
-        'student_id'=> 'required|unique:Students|numeric',
+        'id'=> 'required|unique:Students|numeric',
         'password' => 'required|min:8',
        
     ]);
@@ -41,8 +43,9 @@ class StudentController extends Controller
 
    
      $student = new Students;
+        
 
-      $student->student_id = request('student_id');
+      $student->id = request('id');
       $student->first_name=request('fname');
       $student->last_name=request('mname');
       $student->middle_name=request('lname');
@@ -54,11 +57,11 @@ class StudentController extends Controller
     }
 
 
-      public function edit($id)
+      public function edit($student)
       {
-
+              
       
-         $result = Students::find('student_id',$id);
+          $result = Students::where('id', $student)->first();
         return view('root.students.edit', compact('result'));
 
 
@@ -69,18 +72,20 @@ class StudentController extends Controller
 
 
 
-    public function update(Request $request,  $id)
+    public function update($id)
     {
             
+      
 
-
-            $student = App\Students::find($id);
-            $student->student_id = request('student_id');
-            $student->first_name=request('fname');
-            $student->last_name=request('mname');
-            $student->middle_name=request('lname');
-            $student->name=request('username');
-            $student->password= encrypt(request('password'));
+     
+           
+            $student = Students::find($id);
+            $student->student_id = Input('student_id');
+            $student->first_name=Input('fname');
+            $student->last_name=Input('mname');
+            $student->middle_name=Input('lname');
+            $student->name=Input('username');
+            $student->password= encrypt(Input('password'));
             $student->save();
 
 
