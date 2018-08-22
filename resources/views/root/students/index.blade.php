@@ -20,11 +20,10 @@
      <div class="left-align col-md-3">
      
 
-     <a href="create" class="btn btn-primary">
-           <i class="ft-plus"><h6> Create Student </h6></i></a>
+     <a href="create" class="btn btn-primary"><h6> <i class="ft-plus">Create Student</h6></i></a>
     </div>
 
-  
+
 
 
   </div>
@@ -46,20 +45,20 @@
               
                @foreach($result as $result)
               <tr> 
-                
-                <td class="text-nowrap"> 
-                     <a href="{{$result->id}}/edit" class="link-edit-student" data-toggle="tooltip" data-orginal-title="Edit">
+                 <form method="POST" action ="/superweb/webscivre/public/student/destroy/{{$result->id}}">
+                        {{csrf_field()}}
+                        {{method_field('DELETE')}}
+            <td class="text-nowrap"> 
+             <a href="{{$result->id}}/edit" class="link-edit-student" data-toggle="tooltip" data-orginal-title="Edit">
                        <i class="ft-edit">  </i>
                      </a>
-                       <a href=" " class="link-edit-student" data-toggle="tooltip" data-orginal-title="Edit">
-                       
-                       <i class="ft-trash-2">  </i>
-                     </a>
-
-                     <a href="show/{{$result->id}}" class="link-edit-student" data-toggle="tooltip" data-orginal-title="Edit">
-                       
+            <a href="show/{{$result->id}}" class="link-edit-student" data-toggle="tooltip" data-orginal-title="Edit">
                        <i class="ft-eye">  </i>
                      </a>
+
+                       <button type="submit" class="ft-trash-2 btn btn-warning"></button> 
+
+                    </form>
                         
                         
                 </td>
@@ -89,6 +88,7 @@
 
 
 </table>
+
 </div>
 </div>
 </div>

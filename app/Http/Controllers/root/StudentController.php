@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Students;
 use DB;
 use Carbon\Carbon;
+use Auth;
+
 class StudentController extends Controller
 {
     
@@ -17,11 +19,16 @@ class StudentController extends Controller
    public function index()
     {
 
+
+
+
          $result = DB::table('students')->get();
 
-
-
+        
         return view('root.students.index',compact('result'));
+
+        
+
    }
 
    public function show($student)
@@ -39,6 +46,7 @@ class StudentController extends Controller
    {
 
         
+
           return view('root.students.create');
 
    }
@@ -50,6 +58,7 @@ class StudentController extends Controller
      $request->validate([
 
         'id'=> 'required|unique:Students|numeric',
+        'name' => 'required|unique:Students',
         'password' => 'required|min:8',
        
     ]);
@@ -63,7 +72,7 @@ class StudentController extends Controller
       $student->first_name=request('fname');
       $student->last_name=request('mname');
       $student->middle_name=request('lname');
-      $student->name=request('username');
+      $student->name=request('name');
       $student->password= encrypt(request('password'));
       $student->save();
 
@@ -86,33 +95,45 @@ class StudentController extends Controller
 
 
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
             
       
 
-     
-           
-            $student = Students::find($id);
-            $student->student_id = Input('student_id');
-            $student->first_name=Input('fname');
-            $student->last_name=Input('mname');
-            $student->middle_name=Input('lname');
-            $student->name=Input('username');
-            $student->password= encrypt(Input('password'));
-            $student->save();
+     $request->validate([
+
+       //'id'=> 'required|unique:Students|numeric',
+        'password' => 'required|min:8',
+       
+    ]);
 
 
+   
+     $student =  Students::find($id);
+        
 
-        return redirect('student/index');
+     // $student->id=request('id');
+      $student->first_name=request('fname');
+      $student->last_name=request('mname');
+      $student->middle_name=request('lname');
+      $student->name=request('username');
+      $student->password= encrypt(request('password'));
+      $student->save();
 
+      return redirect('student/index');
+
+
+      
     }
 
-    public function delete_student(Request $request)
+    public function destroy($id)
     {
-           students_infos::where('id',$request('student_id'))->delete();
+          
 
-          return redirect('index');
+          $student = Students::find($id);
+          $student->delete();
+
+          return redirect('student/index');
     }
 
 

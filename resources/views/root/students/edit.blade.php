@@ -25,9 +25,9 @@
 
 
 
-<form method="POST" action="update">
- 
-    {{csrf_field()}}
+<form method="POST" action="/superweb/webscivre/public/student/update/{{$result->id}}">
+  
+   @csrf
 
     <label> <h1>Student ID/LRN: {{$result->id}}</h1> </label>
 
@@ -40,7 +40,7 @@
     </div>
      <div class="form-group col-md-3">
       <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password" name="password" required>
+    <input type="password" class="form-control" id="inputPassword4" placeholder="Password" name="password" required>
     </div>
   </div>
   <hr>
@@ -54,7 +54,7 @@
 
    <div class="row">
       <div class="form-group col-md-7">
-        <input type="text" class="form-control" id="inputAddress" placeholder="EXAMPLE:543212212211" name="student_id" value="{{$result->id}}" maxlength="12" required>
+        <input type="text" class="form-control" id="inputAddress" placeholder="EXAMPLE:543212212211" name="id" value="{{$result->id}}" maxlength="12" required>
        </div>
      </div>
 

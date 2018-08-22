@@ -25,7 +25,7 @@
 
 
 
-<form method="POST" action="{{route('root.student.create')}}">
+<form method="POST" action="{{route('root.student.store')}}">
  
   	{{csrf_field()}}
      <label> <h3> Account Information </h3></label>
@@ -34,7 +34,7 @@
     <div class="form-group col-md-3">
 
       <label for="inputEmail4">Username</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="username" name ="username" required>
+      <input type="text" class="form-control" id="inputAddress" placeholder="username" name ="name" required>
     </div>
     <div class="form-group col-md-3">
       <label for="inputPassword4">Password</label>

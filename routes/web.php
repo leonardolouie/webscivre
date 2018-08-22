@@ -39,9 +39,9 @@ Route::namespace('Root')->name('root.')->group(function () {
 
 
 
-		 	Route::POST('{id}/update', 'StudentController@update');
-		 	Route::DELETE('destroy', 'StudentsController@destroy');
-		 	Route::POST('create.submit', 'StudentController@store')->name('create');
+		 	Route::POST('update/{id}', 'StudentController@update');
+		 	Route::DELETE('destroy/{id}', 'StudentController@destroy');
+		 	Route::POST('store', 'StudentController@store')->name('store');
 		});
 	});
 
