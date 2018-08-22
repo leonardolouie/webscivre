@@ -7,6 +7,7 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Alert;
 
 class LoginController extends Controller
 {
@@ -40,7 +41,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
 
            // Notify::success(greet(), '');
-
+            Alert::success(Auth::user()->name, 'Sucessfully Login')->autoclose(3500);
             return redirect()->route('root.dashboard');
         }
 

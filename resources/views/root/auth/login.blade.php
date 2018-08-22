@@ -8,8 +8,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <title>LOGIN</title>
-  <link rel="apple-touch-icon" href="{{('app-assets/images/ico/apple-icon-120.png')}}">
-  <link rel="shortcut icon" type="image/x-icon" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/images/ico/favicon.ico">
+  
+ 
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i"
   rel="stylesheet">
   <!-- BEGIN VENDOR CSS-->
@@ -44,11 +44,14 @@ data-open="click" data-menu="vertical-menu" data-col="1-column">
                 <div class="card-header border-0">
                   <div class="card-title text-center">
                     <div class="p-1">
-                      <img src="{{('app-assets/images/logo/scire.png')}}" alt="SCIVRE">
+                      {{-- <img src="{{('app-assets/images/logo/scivre.png')}}" alt="SCIVRE"> --}}
                     </div>
                   </div>
+
+
                   <h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
-                    <span>SCIVRE</span>
+                    <h1 class="text-center">SCIVRE</h1>
+                    <small class="text-center"> Science in Virtual Reality Environment</small>
                   </h6>
                 </div>
                 <div class="card-content">
@@ -56,10 +59,10 @@ data-open="click" data-menu="vertical-menu" data-col="1-column">
                     <form class="form-horizontal form-simple" method="POST" action="{{route('root.login')}}" novalidate>
                       @csrf
                       <fieldset class="form-group position-relative has-icon-left mb-1">
-                        <input type="text" name="name" class="form-control form-control-lg" id="name" placeholder="Your Email Address"
+                        <input type="text" name="name" class="form-control form-control-lg" id="name" placeholder="username"
                         required>
                         <div class="form-control-position">
-                          <i class="ft-mail"></i>
+                          <i class="ft-user"></i>
                         </div>
                       </fieldset>
                       <fieldset class="form-group position-relative has-icon-left">

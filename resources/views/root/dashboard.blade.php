@@ -5,7 +5,7 @@
 
 @section('content')
 
-
+@include('sweet::alert') 
 
 
         <!-- Stats -->
@@ -18,8 +18,8 @@
                     <i class="icon-camera font-large-2 white"></i>
                   </div>
                   <div class="p-2 bg-gradient-x-primary white media-body">
-                    <h5>Products</h5>
-                    <h5 class="text-bold-400 mb-0"><i class="ft-plus"></i> 28</h5>
+                    <h5>Students</h5>
+                    <h5 class="text-bold-400 mb-0"><i class="ft-plus"></i> </h5>
                   </div>
                 </div>
               </div>

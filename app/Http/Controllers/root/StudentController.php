@@ -8,12 +8,26 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Students;
 use DB;
-use Carbon\Carbon;
 use Auth;
-
+use Alert;
+use Carbon\Carbon;
 class StudentController extends Controller
 {
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
    public function index()
@@ -46,8 +60,7 @@ class StudentController extends Controller
    {
 
         
-
-          return view('root.students.create');
+      return view('root.students.create');
 
    }
 
@@ -75,6 +88,9 @@ class StudentController extends Controller
       $student->name=request('name');
       $student->password= encrypt(request('password'));
       $student->save();
+
+
+      Alert::success('Sucessfully Added new Students', 'LRN / Student ID'.request('id'))->autoclose(3500);
 
       return redirect('student/index');
     }
@@ -120,6 +136,8 @@ class StudentController extends Controller
       $student->password= encrypt(request('password'));
       $student->save();
 
+        Alert::success('Sucessfully Updated', 'LRN / Student ID'.$id. 'Name: '.request('fname'))->autoclose(3500);
+
       return redirect('student/index');
 
 
@@ -132,6 +150,8 @@ class StudentController extends Controller
 
           $student = Students::find($id);
           $student->delete();
+
+           Alert::success('Sucessfully Deleted', 'LRN / Student ID'.$id)->autoclose(3500);
 
           return redirect('student/index');
     }

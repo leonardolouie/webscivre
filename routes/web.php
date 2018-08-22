@@ -19,6 +19,7 @@
 //Routes for studenst 
 
 
+
 Route::namespace('Root')->name('root.')->group(function () {
 	Route::namespace('Auth')->group(function (){
 
@@ -36,6 +37,9 @@ Route::namespace('Root')->name('root.')->group(function () {
 		 	Route::get('create', 'StudentController@create');
 		 	Route::get('show/{id}', 'StudentController@show');
 		 	Route::get('{id}/edit', 'StudentController@edit');
+
+		 	//Practice route for sweet alert
+		 	Route::get('/SweetAlert/{alertType?}', ['as'=>'SweetAlert','uses'=>'StudentController@test']);
 
 
 

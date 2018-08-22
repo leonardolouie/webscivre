@@ -35,6 +35,9 @@
   <!-- BEGIN Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
   <!-- END Custom CSS-->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"  >
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar"
 data-open="click" data-menu="vertical-menu" data-col="2-columns">
@@ -66,9 +69,45 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
 
 
 
-  </script>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  $(document).ready(function(){
+         //Tooltip
+         $('[data-toggle="tooltip"]').tooltip();   
+
+        
+          
+   $("#delete").onClick(function(){
+
+     
+     var id= $(this).val();
+       
+     
+   }); 
+
+    });
+
+
+
+
+
+</script> 
+
+  
   <script src="https://code.jquery.com/jquery-1.10.2.js" ></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
