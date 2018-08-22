@@ -18,9 +18,10 @@
 
     <div class="row">
      <div class="left-align col-md-3">
-     <a href="create" >
-   <h5> Create New Student </h5></i>
-        </a>
+     
+
+     <a href="create" class="btn btn-primary">
+           <i class="ft-plus"><h6> Create Student </h6></i></a>
     </div>
 
   
@@ -29,7 +30,7 @@
   </div>
          <div class="table-responsive m-t-40">
 
-          <table id="table-students" cellpadding="10"> 
+          <table id="table-students" cellpadding="12"> 
 
             <thead> 
               <th>Actions</th>
@@ -46,13 +47,18 @@
                @foreach($result as $result)
               <tr> 
                 
-                <td> 
+                <td class="text-nowrap"> 
                      <a href="{{$result->id}}/edit" class="link-edit-student" data-toggle="tooltip" data-orginal-title="Edit">
                        <i class="ft-edit">  </i>
                      </a>
                        <a href=" " class="link-edit-student" data-toggle="tooltip" data-orginal-title="Edit">
                        
                        <i class="ft-trash-2">  </i>
+                     </a>
+
+                     <a href="show/{{$result->id}}" class="link-edit-student" data-toggle="tooltip" data-orginal-title="Edit">
+                       
+                       <i class="ft-eye">  </i>
                      </a>
                         
                         

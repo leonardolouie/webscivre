@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Root;
 
+
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Students;
-
+use DB;
+use Carbon\Carbon;
 class StudentController extends Controller
 {
     
@@ -14,11 +17,22 @@ class StudentController extends Controller
    public function index()
     {
 
-        $result = Students::orderBy('id', 'DESC')->get();
+         $result = DB::table('students')->get();
 
 
 
         return view('root.students.index',compact('result'));
+   }
+
+   public function show($student)
+
+   {
+
+
+        $result = DB::table('students')->where('id', $student)->first();
+        return view('root.students.show', compact('result'));
+
+
    }
 
    public function create()
@@ -61,7 +75,7 @@ class StudentController extends Controller
       {
               
       
-          $result = Students::where('id', $student)->first();
+         $result = DB::table('students')->where('id', $student)->first();
         return view('root.students.edit', compact('result'));
 
 

@@ -34,6 +34,7 @@ Route::namespace('Root')->name('root.')->group(function () {
 		Route::prefix('student')->name('student.')->group(function () {
 		 	Route::get('index', 'StudentController@index');
 		 	Route::get('create', 'StudentController@create');
+		 	Route::get('show/{id}', 'StudentController@show');
 		 	Route::get('{id}/edit', 'StudentController@edit');
 
 
