@@ -17,19 +17,6 @@ class StudentController extends Controller
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
    public function index()
     {
 
@@ -44,6 +31,13 @@ class StudentController extends Controller
         
 
    }
+    public function create()
+   {
+
+        
+      return view('root.students.create');
+
+   }
 
    public function show($student)
 
@@ -56,13 +50,7 @@ class StudentController extends Controller
 
    }
 
-   public function create()
-   {
-
-        
-      return view('root.students.create');
-
-   }
+  
 
     public function store(Request $request)
     {

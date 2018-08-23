@@ -29,12 +29,18 @@
 
 
 
-<form method="POST" action="{{route('root.student.store')}}">
+<form method="POST" action="{{route('root.teacher.store')}}">
  
   	{{csrf_field()}}
      <label> <h3> Account Information </h3></label>
      <div class ="cold md-6">
      <div class="form-row">
+
+   <div class="form-group col-md-3">
+
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="inputAddress" placeholder="Email" name ="email" required>
+    </div>
     <div class="form-group col-md-3">
 
       <label for="inputEmail4">Username</label>
@@ -44,23 +50,32 @@
       <label for="inputPassword4">Password</label>
       <input type="password" class="form-control" id="inputPassword4" placeholder="Password" name="password" required>
     </div>
+
   </div>
   <hr>
-  <label> <h3> Student Information </h3> </label>
+  <label> <h3> Teacher Information </h3> </label>
   <div class="row">
     <div class="form-group col-md-12">
 
-     <label for="inputAddress">Student ID/LRN</label>
+     <label for="inputAddress">Teacher ID</label>
       </div>
    </div>
 
    <div class="row">
-      <div class="form-group col-md-7">
-        <input type="text" class="form-control" id="inputAddress" placeholder="EXAMPLE:543212212211" name="id" maxlength="12" required>
+      <div class="form-group col-md-4">
+        <input type="text" class="form-control" id="inputAddress" placeholder="EXAMPLE:XXX-XX" name="id" maxlength="12" required>
        </div>
-     </div>
 
-  </div>
+     <div class="form-group col-md-4" >
+     <select class="form-control" name="type">
+     <option value="teacher">Teacher</option>
+     <option value="admin">Admin</option>
+</select>
+</div>
+
+
+ </div>
+     
 
   <div class="row">
     <div class="form-group col-md-3 ">

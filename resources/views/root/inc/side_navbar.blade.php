@@ -18,18 +18,18 @@
 
              <li class=" nav-item"><a href="#"><i class="ft-users"></i><span class="menu-title" data-i18n="">Account Managment</a>
           <ul class="menu-content">
-            <li><a class="menu-item" href="">Create New Student</a>
+            <li><a class="menu-item" href="{{URL::to('student/index')}}">Create New Student</a>
             </li>
-            <li><a class="menu-item" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/starter-kit/ltr/vertical-menu-template/layout-2-columns.html">Create New Teacher</a>
+            <li><a class="menu-item" href="{{URL::to('teacher/index')}}">Create New Teacher</a>
                 </ul>
             </li>
 
 
           <li class=" nav-item"><a href="#"><i class="ft-settings"></i><span class="menu-title" data-i18n="">Account Settings</a>
             <ul class="menu-content">
-            <li><a class="menu-item" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/starter-kit/ltr/vertical-menu-template/layout-1-column.html">Create New Student</a>
+            <li><a class="menu-item" href="{{URL::to('student/index')}}">Create New Student</a>
             </li>
-            <li><a class="menu-item" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/starter-kit/ltr/vertical-menu-template/layout-2-columns.html">Create New Teacher</a>
+            <li><a class="menu-item" href="{{URL::to('teacher/index')}}">Create New Teacher</a>
                 </ul>
             </li>
 

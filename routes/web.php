@@ -47,6 +47,18 @@ Route::namespace('Root')->name('root.')->group(function () {
 		 	Route::DELETE('destroy/{id}', 'StudentController@destroy');
 		 	Route::POST('store', 'StudentController@store')->name('store');
 		});
+
+
+        Route::prefix('teacher')->name('teacher.')->group(function () {
+		 	Route::get('index', 'TeachersController@index');
+		 	Route::get('create', 'TeachersController@create');
+		   Route::POST('store', 'TeachersController@store')->name('store');
+
+		 	
+		});
+
+
+
 	});
 
 
