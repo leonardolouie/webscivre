@@ -52,10 +52,25 @@ Route::namespace('Root')->name('root.')->group(function () {
         Route::prefix('teacher')->name('teacher.')->group(function () {
 		 	Route::get('index', 'TeachersController@index');
 		 	Route::get('create', 'TeachersController@create');
+		 	Route::get('show/{id}', 'TeachersController@show');
+		 	Route::get('{id}/edit', 'TeachersController@edit');
+
 		   Route::POST('store', 'TeachersController@store')->name('store');
+		   Route::POST('update/{id}', 'TeachersController@update');
+		   Route::DELETE('destroy/{id}', 'TeachersController@destroy');
+		  Route::POST('store', 'StudentController@store')->name('store');
 
 		 	
 		});
+
+
+
+        Route::prefix('section')->name('section.')->group(function () {
+		 	Route::get('index', 'SectionsController@index');
+		 
+		 	
+		});
+
 
 
 

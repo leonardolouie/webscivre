@@ -19,7 +19,7 @@
      <div class="left-align col-md-3">
      
 
-     <a href="create" class="btn btn-primary">Create Teacher</a>
+     <a href="create" class="btn btn-primary">Create Student</a>
     </div>
 
 
@@ -31,11 +31,10 @@
           <table id="table-students" cellpadding="12"> 
 
             <thead> 
-              <th>Actions</th>
-              <th>User ID </th>
-              <th>Name</th>
-              <th>Username</th>
-              <th>User Type</th>
+              <th>Section ID</th>
+              <th>Section Name</th>
+              <th>Grade Level</th>
+              <th>Teacher Name</th>
               <th>Created_at</th>
               <th>Updated_at</th>
              
@@ -45,7 +44,7 @@
               
                @foreach($result as $result)
               <tr> 
-                 <form method="POST" action ="/superweb/webscivre/public/teacher/destroy/{{$result->id}}">
+                 <form method="POST" action ="/superweb/webscivre/public/student/destroy/{{$result->id}}">
                         {{csrf_field()}}
                         {{method_field('DELETE')}}
             <td class="text-nowrap"> 
@@ -69,7 +68,6 @@
 
                 
                 <td>{{$result->name}}</td>
-                <td>{{$result->type}}</td>
                 <td> {{$result->created_at}} </td>
                 <td>{{$result->updated_at}} </td>
                 

@@ -6,7 +6,8 @@
           <span>Menu</span><i class=" ft-minus" data-toggle="tooltip" data-placement="right"
           data-original-title="General"></i>
         </li>
-        <li class=" nav-item" id="dashboard"><a href="index-2.html"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboards</span><span class="badge badge badge-primary badge-pill float-right mr-2">3</span></a>
+        <li class=" nav-item" id="dashboard"><a href="
+          {{route('root.dashboard')}}"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboards</span><span class="badge badge badge-primary badge-pill float-right mr-2">3</span></a>
 
         <li class=" nav-item"><a href="#"><i class="ft-folder"></i><span class="menu-title" data-i18n="">Record Managment</a>
           <ul class="menu-content">

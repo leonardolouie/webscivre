@@ -10,7 +10,6 @@ use Auth;
 use Alert;
 use Carbon\Carbon;
 
-
 class TeachersController extends Controller
 {
     //
@@ -65,4 +64,86 @@ class TeachersController extends Controller
       return redirect('teacher/index');
 
     }
+
+
+
+   public function show($user)
+
+   {
+
+
+        $result = DB::table('Users')->where('id', $user)->first();
+        return view('root.teachers.show', compact('result'));
+
+
+   }
+
+
+
+      public function edit($user)
+      {
+              
+      
+        $result = DB::table('Users')->where('id', $user)->first();
+        return view('root.teachers.edit', compact('result'));
+
+
+      }
+
+
+
+
+
+
+    public function update(Request $request, $id)
+    {
+            
+      
+
+      $request->validate([
+
+         
+        'password' => 'required|min:8',
+       
+    ]);
+
+   
+    $User = new User;
+        
+
+      $User->id = request('id');
+      $User->first_name=request('fname');
+      $User->last_name=request('mname');
+      $User->middle_name=request('lname');
+      $User->email =request('email');
+      $User->name=request('name');
+      $User->password= encrypt(request('password'));
+      $User->type=request('type');
+      $User->save();
+
+        Alert::success('Sucessfully Updated', 'User ID:'.$id. 'Name: '.request('fname'))->autoclose(3500);
+
+      return redirect('teacher/index');
+
+
+      
+    }
+
+
+    public function destroy($id)
+    {
+          
+
+          $user = User::find($id);
+          $user->delete();
+
+          Alert::success('Sucessfully Deleted', 'LRN / Student ID'.$id)->autoclose(3500);
+
+          return redirect('teacher/index');
+    }
+
+
+
+
+
 }
