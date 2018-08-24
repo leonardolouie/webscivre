@@ -71,6 +71,34 @@ class MobileController extends Controller
 
 
    }
+
+   public function login(Request $request)
+   {
+
+      $message;
+
+
+          
+     $result = DB::table('students')->where(
+      ['name' => request('username'), 'password' => encrypt(request('password'))])->first();
+
+
+       if($result != null)
+       {
+
+            $message = ['message' => "Successfully Logged"];
+
+       }
+       else
+       {
+
+             $message = ['message' => "No user found check your username and password"];
+
+
+       }
+        
+          return response()->json($message);
+   }
     
 
 
