@@ -39,12 +39,12 @@ Route::namespace('Root')->name('root.')->group(function () {
 		 	Route::get('{id}/edit', 'StudentController@edit');
 
 		 	//Practice route for sweet alert
-		 	Route::get('/SweetAlert/{alertType?}', ['as'=>'SweetAlert','uses'=>'StudentController@test']);
+		 //Route::get('/SweetAlert/{alertType?}', ['as'=>'SweetAlert','uses'=>'StudentController@test']);
 
 
 
 		 	Route::POST('update/{id}', 'StudentController@update');
-		 	Route::DELETE('destroy/{id}', 'StudentController@destroy');
+		 	Route::DELETE('destroy/{id}', 'StudentController@destroy')->name('destroy');
 		 	Route::POST('store', 'StudentController@store')->name('store');
 		});
 
@@ -58,7 +58,7 @@ Route::namespace('Root')->name('root.')->group(function () {
 		   Route::POST('store', 'TeachersController@store')->name('store');
 		   Route::POST('update/{id}', 'TeachersController@update');
 		   Route::DELETE('destroy/{id}', 'TeachersController@destroy');
-		  Route::POST('store', 'StudentController@store')->name('store');
+		
 
 		 	
 		});

@@ -45,14 +45,14 @@
               
                @foreach($result as $result)
               <tr> 
-                 <form method="POST" action ="/superweb/webscivre/public/teacher/destroy/{{$result->id}}">
+             <form method="POST" action ="destroy/{{$result->id}}">
                         {{csrf_field()}}
                         {{method_field('DELETE')}}
             <td class="text-nowrap"> 
              <a href="{{$result->id}}/edit" data-toggle="tooltip" title="Edit">
                        <i class="ft-edit">  </i>
                      </a>
-            <a href="show/{{$result->id}}" data-toggle="tooltip" title="Show Student">
+            <a href="show/{{$result->id}}" data-toggle="tooltip" title="Show User">
                        <i class="ft-eye">  </i>
                      </a>
 

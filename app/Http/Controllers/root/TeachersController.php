@@ -18,7 +18,8 @@ class TeachersController extends Controller
    public function index()
     {
 
-       $result = DB::table('users')->where('type', 'teacher')->get();
+     $result = DB::table('users')->where('type', 'teacher')->get();
+      //$result = DB::table('users')->get();
        return view('root.teachers.index',compact('result'));
         
 
@@ -54,7 +55,7 @@ class TeachersController extends Controller
       $User->middle_name=request('lname');
       $User->email =request('email');
       $User->name=request('name');
-      $User->password= encrypt(request('password'));
+      $User->password= bcrypt(request('password'));
       $User->type=request('type');
       $User->save();
 
@@ -137,7 +138,7 @@ class TeachersController extends Controller
           $user = User::find($id);
           $user->delete();
 
-          Alert::success('Sucessfully Deleted', 'LRN / Student ID'.$id)->autoclose(3500);
+          Alert::success('Sucessfully Deleted', 'Teacher'.$id)->autoclose(3500);
 
           return redirect('teacher/index');
     }

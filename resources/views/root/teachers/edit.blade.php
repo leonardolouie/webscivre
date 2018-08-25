@@ -29,7 +29,7 @@
 
 
 
-<form method="POST" action="/superweb/webscivre/public/teacher/update/{{$result->id}}">
+<form method="POST" action="{{URL::to('teacher/update/'.$result->id)}}">
  
     {{csrf_field()}}
 

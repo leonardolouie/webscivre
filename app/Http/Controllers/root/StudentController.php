@@ -74,7 +74,7 @@ class StudentController extends Controller
       $student->last_name=request('mname');
       $student->middle_name=request('lname');
       $student->name=request('name');
-      $student->password= encrypt(request('password'));
+      $student->password= bcrypt(request('password'));
       $student->save();
 
 

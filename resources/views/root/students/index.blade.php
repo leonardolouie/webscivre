@@ -7,7 +7,7 @@
  <div class="content-body">
        
 
-<!--TABLE --> 
+<!--TABLE --> `
 
 
 <div class ="row">
@@ -44,7 +44,7 @@
               
                @foreach($result as $result)
               <tr> 
-                 <form method="POST" action ="/superweb/webscivre/public/student/destroy/{{$result->id}}">
+                 <form method="POST" action ="destroy/{{$result->id}}">
                         {{csrf_field()}}
                         {{method_field('DELETE')}}
             <td class="text-nowrap"> 

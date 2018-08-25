@@ -25,7 +25,7 @@
 
 
 
-<form method="POST" action="/superweb/webscivre/public/student/update/{{$result->id}}">
+<form method="POST" action="{{URL::to('student/update/'.$result->id)}}">
   
    @csrf
 

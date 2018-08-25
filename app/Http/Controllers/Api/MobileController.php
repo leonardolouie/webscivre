@@ -58,7 +58,7 @@ class MobileController extends Controller
       $student->last_name=request('mname');
       $student->middle_name=request('lname');
       $student->name=request('name');
-      $student->password= encrypt(request('password'));
+      $student->password= bcrypt(request('password'));
       $student->save();
       
       $message = ['message' => "Registered User"];
@@ -80,7 +80,7 @@ class MobileController extends Controller
 
           
      $result = DB::table('students')->where(
-      ['name' => request('username'), 'password' => encrypt(request('password'))])->first();
+      ['name' => request('username'), 'password' => bcrypt(request('password'))])->first();
 
 
        if($result != null)

@@ -41,7 +41,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
 
            // Notify::success(greet(), '');
-            Alert::success(Auth::user()->name, 'Sucessfully Login')->autoclose(3500);
+            Alert::success(Auth::user()->name, 'You have successfully logged in')->autoclose(3500);
             return redirect()->route('root.dashboard');
         }
 
