@@ -45,6 +45,11 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
+       'mobile' => [
+            'driver' => 'session',
+            'provider' => 'students',
+        ],
     ],
 
     /*
@@ -70,10 +75,10 @@ return [
             'model' => App\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'students' => [
+           'driver' => 'eloquent',
+            'model' => App\Students::class,
+         ],
     ],
 
     /*
@@ -97,6 +102,10 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
+
+
+
+
     ],
 
 ];

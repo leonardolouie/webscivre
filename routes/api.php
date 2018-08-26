@@ -24,7 +24,7 @@ Route::namespace('Api')->name('api.')->group(function () {
 
 		Route::get('myfirstapi', 'MobileController@my_first_api');
 		Route::post('webscivreapiregister', 'MobileController@store');
-		Route::get('webscivreapilogin', 'MobileController@login');
+		Route::post('webscivreapilogin', 'MobileController@login');
 
 
 });

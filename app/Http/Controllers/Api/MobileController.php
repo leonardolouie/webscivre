@@ -4,17 +4,21 @@ namespace App\Http\Controllers\Api;
 
 
 
+
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Laravel\Passport\Client;
 use function MongoDB\BSON\toJSON;
+use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Support\Facades\Crypt;
+
 use DB;
 use Auth;
 use Carbon\Carbon;
 use App\Students;
 class MobileController extends Controller
 {
-    
 
 
 
@@ -36,7 +40,7 @@ class MobileController extends Controller
 
 
 
-        $valid = validator($request->only('id', 'name', 'password'), [
+        $valid = validate($request->only('id', 'name', 'password'), [
         'id'=> 'required|unique:Students|numeric',
         'name' => 'required|unique:Students',
         'password' => 'required|min:8',
@@ -44,6 +48,7 @@ class MobileController extends Controller
 
         if ($valid->fails()) {
             $jsonError=response()->json($valid->errors()->all(), 400);
+
             return \Response::json($jsonError);
         }
           
@@ -79,26 +84,47 @@ class MobileController extends Controller
 
 
           
-     $result = DB::table('students')->where(
-      ['name' => request('username'), 'password' => bcrypt(request('password'))])->first();
+    /* $result = DB::table('students')->where(
+      ['name' => request('username'), 'password' => bcrypt(request('password'))])->first();*/
 
 
-       if($result != null)
-       {
 
-            $message = ['message' => "Successfully Logged"];
+        $valid = validator($request->only('name', 'password'),[
+       
+        'name' => 'required',
+        'password' => 'required',
+        ]);
 
-       }
-       else
-       {
+        if ($valid->fails()) {
+                  $jsonError=response()->json($valid->errors()->all(), 400);
 
-             $message = ['message' => "No user found check your username and password"];
+                  return \Response::json($jsonError);
+        }
+          
+
+         if(Auth::guard('mobile')->attempt(['name' => $request->name, 'password' => $request->password]))
+         {
+
+                   
+               return response('You are sucessfully Login');
+            
+         }
+
+         else
+         {
+
+               return response('Username or Password is wrong');
+
+         }
+     
 
 
-       }
-        
-          return response()->json($message);
-   }
+
+
+
+
+
+      }
     
 
 
