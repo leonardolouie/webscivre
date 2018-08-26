@@ -40,7 +40,7 @@ class MobileController extends Controller
 
 
 
-        $valid = validate($request->only('id', 'name', 'password'), [
+        $valid = validator($request->only('id', 'name', 'password'), [
         'id'=> 'required|unique:Students|numeric',
         'name' => 'required|unique:Students',
         'password' => 'required|min:8',
@@ -66,10 +66,10 @@ class MobileController extends Controller
       $student->password= bcrypt(request('password'));
       $student->save();
       
-      $message = ['message' => "Registered User"];
+      $message = "Successfully Registered";
      
 
-      return response()->json($message);
+      return response($message);
 
 
       }
