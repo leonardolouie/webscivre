@@ -22,15 +22,22 @@ class MobileController extends Controller
 
 
 
-   public function my_first_api()
+   public function studentdata()
     {
 
 
-       $data = DB::table('users')->get();
-
+       $result = DB::table('students')->get();
             
-       return response()->json($data);
+       return response()->json($result);
         
+
+   }
+
+   public function fetch(Request $request)
+   {
+
+      $result = DB::table('students')->where('name',request('name'))->first();
+      return response()->json($result);
 
    }
 

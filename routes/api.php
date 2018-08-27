@@ -22,9 +22,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::namespace('Api')->name('api.')->group(function () {
 
 
-		Route::get('myfirstapi', 'MobileController@my_first_api');
+		Route::get('myfirstapi', 'MobileController@studentdata');
 		Route::post('webscivreapiregister', 'MobileController@store');
 		Route::post('webscivreapilogin', 'MobileController@login');
+		Route::post('webscivreapifetch', 'MobileController@fetch');
+
 
 
 });
