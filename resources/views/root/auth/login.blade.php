@@ -4,11 +4,11 @@
 
   @section('content')
 @include('sweet::alert') 
-  <div class="app-content content">
+  <div class="app-content content" style="background-image:url({{asset('/images/icon/BG.png')}})">
     <div class="content-wrapper">
       <div class="content-header row">           
       </div>
-      <div class="content-body">
+      <div class="content-body"  ">
 
         <section class="flexbox-container">
           <div class="col-12 d-flex align-items-center justify-content-center">
@@ -23,10 +23,11 @@
                   </div>
 
 
-
+                   
 
                   <h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
-                    <h1 class="text-center">SCIVRE</h1>
+                    <img class="brand-logo" alt="SCIVRE" src="{{asset('/images/icon/logo.png')}}" height="100px" width="100px">
+                    <br>
                     <small class="text-center"> Science in Virtual Reality Environment</small>
                   </h6>
                 </div>
@@ -42,7 +43,7 @@
                         </div>
                       </fieldset>
                       <fieldset class="form-group position-relative has-icon-left">
-                        <input type="password" name="password" class="form-control form-control-lg  form-email" id="user-password" placeholder="Enter Password"
+                        <input type="password" name="password" class="form-control form-control-lg " id="user-password" placeholder="Enter Password"
                         required>
                         <div class="form-control-position">
                           <i class="fa fa-key"></i>
@@ -51,7 +52,7 @@
                       <div class="form-group row">
                         <div class="col-md-6 col-12 text-center text-md-left">
                           <fieldset>
-                            <input type="checkbox" id="remember-me" class="chk-remember">
+                            <input type="checkbox" id="remember-me" class="chk-remember" name="remember">
                             <label for="remember-me"> Remember Me</label>
                           </fieldset>
                         </div>

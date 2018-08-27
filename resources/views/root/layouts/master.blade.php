@@ -12,8 +12,7 @@
   <meta name="author" content="PIXINVENT">
 
   <title> Science In Virtual Reality Environment</title>
-  <link rel="apple-touch-icon" href="{{asset('app-assets/images/ico/apple-icon-120.png')}}">
-  <link rel="shortcut icon" type="image/x-icon" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/images/ico/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="{{asset('/images/icon/logo.png')}}">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i"
   rel="stylesheet">
   <!-- BEGIN VENDOR CSS-->
