@@ -47,9 +47,10 @@ class MobileController extends Controller
         ]);
 
         if ($valid->fails()) {
-            $jsonError=response()->json($valid->errors()->all(), 400);
-
-            return \Response::json($jsonError);
+           $jsonError=response()->json($valid->errors()->all(), 400);
+             
+           // $message = ["message" => $valid->errors()->all(), "status" => "1"];
+            return response()->json($jsonError);
         }
           
          else{
@@ -66,7 +67,7 @@ class MobileController extends Controller
       $student->password= bcrypt(request('password'));
       $student->save();
       
-      $message = "Successfully Registered";
+      $message = ["message" => "Sucessfully created account" , "status" => "1"];
      
 
       return response($message);
@@ -105,16 +106,19 @@ class MobileController extends Controller
          if(Auth::guard('mobile')->attempt(['name' => $request->name, 'password' => $request->password]))
          {
 
-                   
-               return response('You are sucessfully Login');
+              
+               //$result = DB::table('students')->where('name',request('username'))->get();
+            $message = ["message" => "Sucessfully Logged in" , "status" => "1"];
+            return response()->json($message);
             
          }
 
          else
          {
 
-               return response('Username or Password is wrong');
-
+            $message = ["message" => "Username or Password is incorrect" , "status" => "2"];
+            return response()->json($message);
+            
          }
      
 
