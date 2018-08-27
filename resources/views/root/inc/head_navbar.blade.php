@@ -8,7 +8,7 @@
           <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
           <li class="nav-item">
             <a class="navbar-brand" href="index-2.html">
-              <img class="brand-logo" alt="SCIVRE" src="">
+              <img class="brand-logo" alt="SCIVRE" src="{{asset('/images/icon/logo.png')}}" height="50px" width="50px">
               <h2 class="brand-text">SCIVRE</h2>
             </a>
           </li>
