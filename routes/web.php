@@ -27,6 +27,8 @@ Route::namespace('Root')->name('root.')->group(function () {
 
     Route::get('/login', 'LoginController@showLoginForm')->name('login');
     Route::post('/login', 'LoginController@login');
+    Route::get('/register','RegisterController@showRegisterForm')->name('register');
+    Route::post('/register', 'RegisterController@store');
     Route::any('/logout','LoginController@logout')->name('logout');
     	});
 

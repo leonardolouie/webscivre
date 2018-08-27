@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Alert;
-
+use App\user;
 class LoginController extends Controller
 {
     /**
@@ -24,7 +24,13 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('root.auth.login');
+        /*$result = User::all();
+
+
+         if($result != null)
+            return view('root.auth.login');
+         else*/
+            return view('root.auth.login');
     }
 
     public function login(Request $request)
