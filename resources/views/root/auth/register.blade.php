@@ -4,9 +4,9 @@
   @section('content')
   @include('sweet::alert') 
 
-<div class="app-content content">
+<div class="app-content content" >
     <div class="content-wrapper">
-      <div class="content-body">
+      <div class="content-body" >
          
          <div class="content-body">
 

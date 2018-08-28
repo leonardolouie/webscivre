@@ -1,8 +1,7 @@
+@extends('root.auth.layouts.master')
 
-  @extends('root.auth.layouts.master');
 
-
-  @section('content')
+@section('content')
 @include('sweet::alert') 
   <div class="app-content content" style="background-image:url({{asset('/images/icon/BG.png')}})">
     <div class="content-wrapper">
@@ -17,7 +16,7 @@
                 <div class="card-header border-0">
                   <div class="card-title text-center">
                     <div class="p-1">
-                      {{-- <img src="{{('app-assets/images/logo/scivre.png')}}" alt="SCIVRE"> --}}
+                      
                    
                     </div>
                   </div>

@@ -27,12 +27,12 @@
   <!-- BEGIN Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{('assets/css/style.css')}}">
   <!-- END Custom CSS-->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"  >
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body class="vertical-layout vertical-menu 1-column   menu-expanded blank-page blank-page"
 data-open="click" data-menu="vertical-menu" data-col="1-column">
-  <!-- ////////////////////////////////////////////////////////////////////////////-->
+ 
 
       @include('sweet::alert') 
        @yield('content')
