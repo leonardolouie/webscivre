@@ -19,7 +19,7 @@
      <div class="left-align col-md-3">
      
 
-     <a href="create" class="btn btn-primary">Create Student</a>
+     <a href="create" class="btn btn-primary">Create Section</a>
     </div>
 
 
@@ -31,10 +31,12 @@
           <table id="table-students" cellpadding="12"> 
 
             <thead> 
+               <th>Actions</th>
               <th>Section ID</th>
               <th>Section Name</th>
+              <th>Teacher Name </th>
               <th>Grade Level</th>
-              <th>Teacher Name</th>
+              <th>Created_by</th>
               <th>Created_at</th>
               <th>Updated_at</th>
              
@@ -44,14 +46,14 @@
               
                @foreach($result as $result)
               <tr> 
-                 <form method="POST" action ="/superweb/webscivre/public/student/destroy/{{$result->id}}">
+                 <form method="POST" action ="/superweb/webscivre/public/section/destroy/{{$result->section_id}}">
                         {{csrf_field()}}
                         {{method_field('DELETE')}}
             <td class="text-nowrap"> 
-             <a href="{{$result->id}}/edit" data-toggle="tooltip" title="Edit">
+             <a href="{{$result->section_id}}/edit" data-toggle="tooltip" title="Edit">
                        <i class="ft-edit">  </i>
                      </a>
-            <a href="show/{{$result->id}}" data-toggle="tooltip" title="Show Student">
+            <a href="show/{{$result->section_id}}" data-toggle="tooltip" title="Show Section">
                        <i class="ft-eye">  </i>
                      </a>
 
@@ -61,13 +63,16 @@
                         
                         
                 </td>
-                <td>{{$result->id}}</td>
+                <td>{{$result->section_id}}</td>
 
-                <td>  
-                     {{$result->last_name.", ".$result->first_name." ". $result->middle_name}} </td>
+                <td>  {{$result->section_name}}</td>
+                <td> {{$result->GetTeacherName()}}
+
 
                 
-                <td>{{$result->name}}</td>
+                <td>{{$result->grade_level}}</td>
+                <td>{{$result->GetCreatedBy()}}</td>
+                
                 <td> {{$result->created_at}} </td>
                 <td>{{$result->updated_at}} </td>
                 

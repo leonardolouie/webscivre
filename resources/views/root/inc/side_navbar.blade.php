@@ -22,6 +22,8 @@
             <li><a class="menu-item" href="{{URL::to('student/index')}}">Create New Student</a>
             </li>
             <li><a class="menu-item" href="{{URL::to('teacher/index')}}">Create New Teacher</a>
+             <li><a class="menu-item" href="{{URL::to('section/index')}}">Create New Section</a>
+                
                 </ul>
             </li>
 

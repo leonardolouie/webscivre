@@ -69,6 +69,11 @@ Route::namespace('Root')->name('root.')->group(function () {
 
         Route::prefix('section')->name('section.')->group(function () {
 		 	Route::get('index', 'SectionsController@index');
+		 	Route::get('create', 'SectionsController@create');
+		 	Route::DELETE('destroy/{id}', 'TeachersController@destroy');
+		
+
+		 	 Route::POST('store', 'SectionsController@store')->name('store');
 		 
 		 	
 		});

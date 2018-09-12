@@ -20,13 +20,9 @@ class StudentController extends Controller
    public function index()
     {
 
+      $result = DB::table('students')->get();
 
-
-
-         $result = DB::table('students')->get();
-
-        
-        return view('root.students.index',compact('result'));
+     return view('root.students.index',compact('result'));
 
         
 
