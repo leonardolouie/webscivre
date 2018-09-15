@@ -18,7 +18,7 @@
   <small>Time Created: {{$result->created_at}}</small>
   <hr>
 
-  <h4> Student LRN/ID:{{$result->id}}</h4>
+  <h4> Student LRN/ID:{{$result->student_id}}</h4>
 
 
 

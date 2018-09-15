@@ -17,7 +17,7 @@ class User extends Authenticatable
      */
     protected $dates = ['deleted_at'];
     protected $fillable = [
-        'name', 'email', 'password','id','first_name','type', 'middle_name' , 'last_name','created_by',
+        'name', 'email', 'password','teacher_id','first_name','type', 'middle_name' , 'last_name','created_by',
     ];
 
     /**
@@ -32,6 +32,7 @@ class User extends Authenticatable
 
       public function sections()
       {
+
 
         return $this->hasMany('App\Sections');
       }

@@ -23,8 +23,10 @@
 Route::namespace('Root')->name('root.')->group(function () {
 	Route::namespace('Auth')->group(function (){
 
+        
+      
 
-
+            
     Route::get('/login', 'LoginController@showLoginForm')->name('login');
     Route::post('/login', 'LoginController@login');
     Route::get('/register','RegisterController@showRegisterForm')->name('register');
@@ -70,6 +72,7 @@ Route::namespace('Root')->name('root.')->group(function () {
         Route::prefix('section')->name('section.')->group(function () {
 		 	Route::get('index', 'SectionsController@index');
 		 	Route::get('create', 'SectionsController@create');
+		 	Route::get('search' , 'SectionsControoler@search');
 		 	Route::DELETE('destroy/{id}', 'TeachersController@destroy');
 		
 

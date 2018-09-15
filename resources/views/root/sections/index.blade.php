@@ -26,7 +26,14 @@
 
 
   </div>
-         <div class="table-responsive m-t-40">
+
+  @if($result->isEmpty())
+         
+<div> <h1 style="text-align: center"> NO SECTIONS FOUND </h1></div>
+
+@else
+       
+       <div class="table-responsive m-t-40">
 
           <table id="table-students" cellpadding="12"> 
 
@@ -34,8 +41,9 @@
                <th>Actions</th>
               <th>Section ID</th>
               <th>Section Name</th>
+            
               <th>Teacher Name </th>
-              <th>Grade Level</th>
+                <th>Grade Level</th>
               <th>Created_by</th>
               <th>Created_at</th>
               <th>Updated_at</th>
@@ -66,12 +74,11 @@
                 <td>{{$result->section_id}}</td>
 
                 <td>  {{$result->section_name}}</td>
-                <td> {{$result->GetTeacherName()}}
-
+                <td> qeqeqwe</td>
 
                 
                 <td>{{$result->grade_level}}</td>
-                <td>{{$result->GetCreatedBy()}}</td>
+                <td> qweeqw</td>
                 
                 <td> {{$result->created_at}} </td>
                 <td>{{$result->updated_at}} </td>
@@ -94,6 +101,8 @@
 </table>
 
 </div>
+
+@endif
 </div>
 </div>
 </div>

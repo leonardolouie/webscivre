@@ -18,15 +18,15 @@ class RegisterController extends Controller
     public function ShowRegisterForm()
     {
 
-       /*
-          $result = User::all();
-
-
-         if(!empty($result))
-            return redirect('/login');
-         else*/
+    
            
+
+           $result = User::all();
+
+           if($result->isEmpty())
            return view('root.auth.register');
+           else
+            return redirect('login');
       
       
 

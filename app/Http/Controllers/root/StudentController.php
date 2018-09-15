@@ -40,7 +40,7 @@ class StudentController extends Controller
    {
 
 
-        $result = DB::table('students')->where('id', $student)->first();
+        $result = DB::table('students')->where('student_id', $student)->first();
         return view('root.students.show', compact('result'));
 
 
@@ -54,7 +54,7 @@ class StudentController extends Controller
 
      $request->validate([
 
-        'id'=> 'required|unique:Students|numeric',
+        'student_id'=> 'required|unique:Students|numeric',
         'name' => 'required|unique:Students',
         'password' => 'required|min:8',
        
@@ -65,7 +65,7 @@ class StudentController extends Controller
      $student = new Students;
         
 
-      $student->id = request('id');
+      $student->student_id = request('student_id');
       $student->first_name=request('fname');
       $student->last_name=request('mname');
       $student->middle_name=request('lname');
@@ -84,7 +84,7 @@ class StudentController extends Controller
       {
               
       
-         $result = DB::table('students')->where('id', $student)->first();
+         $result = DB::table('students')->where('student_id', $student)->first();
         return view('root.students.edit', compact('result'));
 
 
@@ -128,14 +128,16 @@ class StudentController extends Controller
       
     }
 
-    public function destroy($id)
+    public function destroy($student)
     {
           
 
-          $student = Students::find($id);
+        // dd($student = Students::find($id));
+
+          $result = DB::table('students')->where('student_id', $student)->first();
           $student->delete();
 
-           Alert::success('Sucessfully Deleted', 'LRN / Student ID'.$id)->autoclose(3500);
+           Alert::success('Sucessfully Deleted', 'LRN / Student ID'.$student)->autoclose(3500);
 
           return redirect('student/index');
     }

@@ -26,6 +26,14 @@
 
 
   </div>
+
+
+  @if($result->isEmpty())
+ <div> <h1 style="text-align: center"> NO STUDENTS FOUND </h1></div>
+        
+@else
+       
+
          <div class="table-responsive m-t-40">
 
           <table id="table-students" cellpadding="12"> 
@@ -44,14 +52,14 @@
               
                @foreach($result as $result)
               <tr> 
-                 <form method="POST" action ="destroy/{{$result->id}}">
+                 <form method="POST" action ="destroy/{{$result->student_id}}">
                         {{csrf_field()}}
                         {{method_field('DELETE')}}
             <td class="text-nowrap"> 
-             <a href="{{$result->id}}/edit" data-toggle="tooltip" title="Edit">
+             <a href="{{$result->student_id}}/edit" data-toggle="tooltip" title="Edit">
                        <i class="ft-edit">  </i>
                      </a>
-            <a href="show/{{$result->id}}" data-toggle="tooltip" title="Show Student">
+            <a href="show/{{$result->student_id}}" data-toggle="tooltip" title="Show Student">
                        <i class="ft-eye">  </i>
                      </a>
 
@@ -61,7 +69,7 @@
                         
                         
                 </td>
-                <td>{{$result->id}}</td>
+                <td>{{$result->student_id}}</td>
 
                 <td>  
                      {{$result->last_name.", ".$result->first_name." ". $result->middle_name}} </td>
@@ -89,6 +97,12 @@
 </table>
 
 </div>
+
+
+@endif
+
+
+
 </div>
 </div>
 </div>

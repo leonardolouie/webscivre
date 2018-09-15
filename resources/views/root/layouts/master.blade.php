@@ -87,6 +87,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
 <script>
   $(document).ready(function(){
          //Tooltip
+         alert('hey');
          $('[data-toggle="tooltip"]').tooltip();   
 
         
@@ -99,6 +100,8 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
      
    }); 
 
+    
+
     });
 
 
@@ -107,12 +110,15 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
 
 </script> 
 
-  
-  <script src="https://code.jquery.com/jquery-1.10.2.js" ></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  {{-- <script src="https://code.jquery.com/jquery-1.10.2.js" ></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> --}}
+
+  <script src="{{asset('js/jquery.js')}}" type="text/javascript"> </script>
+  <script src="{{asset('js/jquery.min.js')}}" type="text/javascript"> </script>
+
   <!-- BEGIN VENDOR JS-->
-  <script src="{{asset('app-assets/vendors/js/vendors.min.js')}}" type="text/javascript"></script>
+  <script src="{{asset('app-assets/vendors/js/vendors.min.js')}}" type="text/javascript"></script> 
   <!-- BEGIN VENDOR JS-->
   <!-- BEGIN PAGE VENDOR JS-->
   <script src="{{asset('app-assets/vendors/js/charts/raphael-min.js')}}" type="text/javascript"></script>

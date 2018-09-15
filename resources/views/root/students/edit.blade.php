@@ -29,7 +29,7 @@
   
    @csrf
 
-    <label> <h1>Student ID/LRN: {{$result->id}}</h1> </label>
+    <label> <h1>Student ID/LRN: {{$result->student_id}}</h1> </label>
 
      <div class ="cold md-6">
      <div class="form-row">

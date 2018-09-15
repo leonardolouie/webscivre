@@ -42,6 +42,7 @@ class TeachersController extends Controller
         'id'=> 'required|unique:Users|numeric',
         'name' => 'required|unique:Users',
         'password' => 'required|min:8',
+        'email' => 'required|unique:Users'
        
     ]);
 

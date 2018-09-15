@@ -26,6 +26,14 @@
 
 
   </div>
+@if($result->isEmpty())
+<div> <h1 style="text-align: center"> NO TEACHERS FOUND </h1></div>
+
+       
+
+  @else
+
+        
          <div class="table-responsive m-t-40">
 
           <table id="table-students" cellpadding="12"> 
@@ -91,6 +99,8 @@
 </table>
 
 </div>
+  @endif
+         
 </div>
 </div>
 </div>

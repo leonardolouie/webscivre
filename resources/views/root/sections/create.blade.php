@@ -76,10 +76,42 @@
   <br>
   <div class="row">
      <div class="col-md-3">
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary"  data-toggle="tooltip" title="Create New Section"  >Submit</button>
     </div>
   </div>
 </form>
+<br>
+<hr>
+
+ <div class="row">
+<div class="form-group col-md-5"> 
+<input type="text" id="target" name="target" class="form-control" onkeyup="kahitano()"> </input>
+
+</div>
+<div class="form-group col-md-5"> 
+</div>
+</div>
+
+
+<div class="table-responsive m-t-40">
+
+          <table id="table-students" cellpadding="12"> 
+
+            <thead> 
+               <th>Teacher ID</th>
+              <th>First Name</th>
+              <th>Middle Name</th>
+              <th>Last Name </th>
+             
+            </thead>
+
+            <tbody >
+              </tbody>
+
+              </table>
+
+            </div>
+
 
 
 
@@ -93,4 +125,40 @@
 </div>
 </div>
 </div>
+
+
+
+
+<script type="text/javascript"> 
+   
+    function kahitano()
+
+
+
+        {
+
+         var value=  $("#target").val();
+
+                
+          $.ajax({
+            type:'get',
+            url:'{{URL::to('section/search')}}',
+            data:{'search':value},
+
+            success:function(data)
+            {
+                console.log(data);
+
+            }
+
+
+          });                
+        }
+
+
+
+
+     
+   
+ </script>
 @endsection

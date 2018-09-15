@@ -24,13 +24,20 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        /*$result = User::all();
+        
+            
+            $result = User::all();
 
+            if($result->isEmpty())
 
-         if($result != null)
-            return view('root.auth.login');
-         else*/
-            return view('root.auth.login');
+            {
+
+          
+              return redirect('/register');
+            }
+
+              return view('root.auth.login');
+
     }
 
     public function login(Request $request)

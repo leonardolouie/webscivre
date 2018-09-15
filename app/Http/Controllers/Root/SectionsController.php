@@ -8,6 +8,7 @@ use App\Sections;
 use DB;
 use Auth;
 use Alert;
+use App\User;
 
 class SectionsController extends Controller
 {
@@ -34,6 +35,16 @@ class SectionsController extends Controller
     public function store(Request $request)
     {
             // Validate and store the blog post...
+     $section = new Sections;
+         
+     //dd($result = DB::table('sections')->where('id', 22222)->get());
+      $result = User::find($request->id);
+      if($result == null)
+      {
+        Alert::warning($request->id, 'TEACHER ID NOT FOUND')->autoclose(3500);
+      return redirect('section/index');
+
+      }
 
      $request->validate([
 
@@ -45,10 +56,10 @@ class SectionsController extends Controller
 
 
    
-     $section = new Sections;
+   
         
 
-      $section->teacher_id = request('id');
+      $section->id = request('id');
       $section->section_name=request('section_name');
       $section->grade_level=request('gradelevel');
       $section->created_by= Auth::User()->id;
@@ -71,7 +82,48 @@ class SectionsController extends Controller
 
           return redirect('section/index');
     }
+    
 
+
+
+
+
+    public function search(Request $request)
+    {
+
+
+          if($request->ajax())
+
+          { 
+
+            $output="";
+
+                 $teachers = DB::table('users')->where('first_name', 'LIKE','%'.$request->search.'%')->orWhere('last_name', 'LIKE','%'.$request->search.'%')->get();
+
+
+                 if($teacher)
+                   {
+                     
+                     foreach ($teacher as $key => $teacher) {
+
+                      $output ="<tr>". 
+                          "<td>".$teacher->id. "</td>".
+                          "<td>".$teacher->first_name. "</td>".
+                          "<td>".$teacher->middle_name. "</td>".
+                          "<td>".$teacher->last_name. "</td>".
+
+
+                       "</tr>";
+                     }
+
+                        
+                    }
+                
+                return Response($output);
+          }
+
+
+    }
 
 
 
