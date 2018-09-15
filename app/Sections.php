@@ -14,7 +14,7 @@ class Sections extends Model
     {
 
 
-    	return $this->belongsTo('App\User');
+    	return $this->belongsTo('App\User','id');
     }
 
 
