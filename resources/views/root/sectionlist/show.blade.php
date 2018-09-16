@@ -7,7 +7,7 @@
  <div class="content-body">
        
 
-<!--TABLE --> 
+<!--TABLE --> `
 
 
 <div class ="row">
@@ -15,37 +15,58 @@
      <div class="card"> 
       <div class="card-body">
 
-    <div class="row">
-     <div class="left-align col-md-3">
-     
+      	<div class="row">
+      	 @foreach($section as $section )
+      	<div class="col-md-10">
 
-     <a href="create" class="btn btn-primary">Create Section</a>
+     	<h2>Section Name: <b> {{$section->section_name}} </b></h2>
+     	
+      	</div>
+
+      	 <div class= "col-md-2">
+          <small >Section #{{$section->section_id}}</small>
+      	 </div>
+
+      	</div>
+
+
+
+
+      	   @endforeach	
+     
+    <div class="row">
+
+     <div class="left-align col-md-3">
+
+
+     <a href="create" class="btn btn-primary">Add Student</a>
     </div>
 
 
-
+ 
 
   </div>
 
-  @if($result->isEmpty())
-         
-<div> <h1 style="text-align: center"> NO SECTIONS FOUND </h1></div>
+       
 
+
+  @if($result->isEmpty())
+ <div> <h1 style="text-align: center"> NO STUDENTS FOUND </h1></div>
+        
 @else
        
-       <div class="table-responsive m-t-40">
+
+         <div class="table-responsive m-t-40">
 
           <table id="table-students" cellpadding="12"> 
 
             <thead> 
-               <th>Actions</th>
-              <th>Section ID</th>
-              <th>Section Name</th>
-            
-              <th>Teacher Name </th>
-                <th>Grade Level</th>
-              <th>Description</th>
-          
+              <th>Actions</th>
+              <th>LRN/STUDENT ID </th>
+              <th>Name </th>
+              <th>Username</th>
+              <th>Added at </th>
+             	
              
             </thead>
 
@@ -53,14 +74,14 @@
               
                @foreach($result as $result)
               <tr> 
-                 <form method="POST" action ="/superweb/webscivre/public/section/destroy/{{$result->section_id}}">
+                 <form method="POST" action ="destroy/{{$result->student_id}}">
                         {{csrf_field()}}
                         {{method_field('DELETE')}}
             <td class="text-nowrap"> 
-             <a href="{{$result->section_id}}/edit" data-toggle="tooltip" title="Edit">
+             <a href="{{$result->student_id}}/edit" data-toggle="tooltip" title="Edit">
                        <i class="ft-edit">  </i>
                      </a>
-            <a href="show/{{$result->section_id}}" data-toggle="tooltip" title="Show Section">
+            <a href="show/{{$result->student_id}}" data-toggle="tooltip" title="Show Student">
                        <i class="ft-eye">  </i>
                      </a>
 
@@ -70,16 +91,12 @@
                         
                         
                 </td>
-                <td>{{$result->section_id}}</td>
-
-                <td>  {{$result->section_name}}</td>
-                <td> {{$result->last_name.", ". $result->first_name}}</td>
-
-                
-                <td>{{$result->grade_level}}</td>
+                <td>{{$result->student_id}}</td>
+                <td>{{$result->last_name.", ".$result->first_name}}</td>
+                <td>{{$result->name}}</td>
+                <td>{{$result->created_at}}</td>
              
-                
-                <td>{{$result->description}}</td>
+
                
 
 
@@ -97,8 +114,13 @@
 </table>
 
 </div>
-
 @endif
+ 
+
+
+
+
+
 </div>
 </div>
 </div>

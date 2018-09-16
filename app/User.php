@@ -30,11 +30,11 @@ class User extends Authenticatable
     ];
       
 
-      public function sections()
+      public function section()
       {
 
 
-        return $this->hasMany('App\Sections');
+        return $this->hasMany('App\Sections', 'id');
       }
   
 }

@@ -17,8 +17,9 @@ class SectionsController extends Controller
      public function index()
     {
 
-         $result = Sections::all();
-        return view('root.sections.index',compact('result')); 
+      $result = DB::table('users')->join('sections', 'users.id', '=' , 'sections.id')->select('sections.section_id','sections.section_name', 'users.first_name','users.last_name', 'users.middle_name','sections.description','sections.grade_level')->get();
+
+       return view('root.sections.index',compact('result')); 
 
    }
  
