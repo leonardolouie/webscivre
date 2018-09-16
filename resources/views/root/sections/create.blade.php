@@ -67,11 +67,17 @@
 </select>
 </div>
 
+ 
+
 
  </div>
      
-
- 
+<div class="row">
+<div class="form-group shadow-textarea col-md-7">
+    <label for="exampleFormControlTextarea6">Description</label>
+    <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" name="description" rows="3" placeholder="Write something here..."></textarea>
+</div>
+ </div>
 
   <br>
   <div class="row">

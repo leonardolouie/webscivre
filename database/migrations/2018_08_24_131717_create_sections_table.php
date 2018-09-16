@@ -18,6 +18,7 @@ class CreateSectionsTable extends Migration
             $table->string('section_name');
             $table->bigInteger('id');
             $table->string('grade_level');
+            $table->string('description')->nullable();
             $table->string('created_by');
             $table->timestamps();
             $table->SoftDeletes();

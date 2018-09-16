@@ -62,6 +62,7 @@ class SectionsController extends Controller
       $section->id = request('id');
       $section->section_name=request('section_name');
       $section->grade_level=request('gradelevel');
+      $section->description=request('description');
       $section->created_by= Auth::User()->id;
       $section->save();
 

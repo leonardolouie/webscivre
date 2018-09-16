@@ -44,9 +44,8 @@
             
               <th>Teacher Name </th>
                 <th>Grade Level</th>
-              <th>Created_by</th>
-              <th>Created_at</th>
-              <th>Updated_at</th>
+              <th>Description</th>
+          
              
             </thead>
 
@@ -78,12 +77,9 @@
 
                 
                 <td>{{$result->grade_level}}</td>
-                <td> qweeqw</td>
+             
                 
-                <td> {{$result->created_at}} </td>
-                <td>{{$result->updated_at}} </td>
-                
-
+                <td>{{$result->description}}</td>
                
 
 
