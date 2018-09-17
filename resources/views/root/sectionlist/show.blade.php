@@ -19,7 +19,7 @@
       	 @foreach($section as $section )
       	<div class="col-md-10">
 
-     	<h2>Section Name: <b> {{$section->section_name}} </b></h2>
+     	<h5>Section Name: <b> {{$section->section_name}} </b></h5>
      	
       	</div>
 
@@ -32,16 +32,16 @@
 
 
 
-      	   @endforeach	
+      	  
      
     <div class="row">
 
      <div class="left-align col-md-3">
 
 
-     <a href="create" class="btn btn-primary">Add Student</a>
+     <a href="{{$section->section_id}}/create" class="btn btn-primary">Add Student</a>
     </div>
-
+      @endforeach 
 
  
 
@@ -81,7 +81,7 @@
              <a href="{{$result->student_id}}/edit" data-toggle="tooltip" title="Edit">
                        <i class="ft-edit">  </i>
                      </a>
-            <a href="show/{{$result->student_id}}" data-toggle="tooltip" title="Show Student">
+            <a href="info/{{$result->student_id}}" data-toggle="tooltip" title="Show Student Record">
                        <i class="ft-eye">  </i>
                      </a>
 

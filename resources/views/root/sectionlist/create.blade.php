@@ -29,7 +29,7 @@
 
 
 
-<form method="POST" action="{{route('root.section.store')}}">
+<form method="POST" action="store">
  
   	{{csrf_field()}}
      @foreach($result as $result)

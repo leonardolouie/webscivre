@@ -4,10 +4,12 @@
 
 @section('content')
 @include('sweet::alert') 
- <div class="content-body">
+
+
+<div class="content-body">
        
 
-<!--TABLE --> `
+<!--TABLE --> 
 
 
 <div class ="row">
@@ -15,93 +17,54 @@
      <div class="card"> 
       <div class="card-body">
 
-      	<div class="row">
-      	 @foreach($section as $section )
-      	<div class="col-md-10">
-
-     	<h2>Section Name: <b> {{$section->section_name}} </b></h2>
-     	
-      	</div>
-
-      	 <div class= "col-md-2">
-          <small >Section #{{$section->section_id}}</small>
-      	 </div>
-
-      	</div>
-
-
-
-
-      	   @endforeach	
-     
     <div class="row">
+     <div class="left-align col-md-12">
+     
+          @foreach($info as $info)
 
-     <div class="left-align col-md-3">
-
-
-     <a href="create" class="btn btn-primary">Add Student</a>
+              <h4>Name: <b> {{$info->first_name." ".$info->middle_name." ".$info->last_name}} </b></h4>
+          @endforeach
     </div>
 
 
- 
+
 
   </div>
 
-       
-
-
   @if($result->isEmpty())
- <div> <h1 style="text-align: center"> NO STUDENTS FOUND </h1></div>
-        
+         
+<div> <h1 style="text-align: center"> NO RECORDS FOUND </h1></div>
+
 @else
        
-
-         <div class="table-responsive m-t-40">
+       <div class="table-responsive m-t-40">
 
           <table id="table-students" cellpadding="12"> 
 
             <thead> 
-              <th>Actions</th>
-              <th>LRN/STUDENT ID </th>
-              <th>Name </th>
-              <th>Username</th>
-              <th>Added at </th>
-             	
+               <th>Lesson Name</th>
+              <th>Score</th>
+              <th>Remarks</th>
+
+              <th>Date Taken</th>
+              
+          
              
             </thead>
 
             <tbody >
               
                @foreach($result as $result)
-              <tr> 
-                 <form method="POST" action ="destroy/{{$result->student_id}}">
-                        {{csrf_field()}}
-                        {{method_field('DELETE')}}
-            <td class="text-nowrap"> 
-             <a href="{{$result->student_id}}/edit" data-toggle="tooltip" title="Edit">
-                       <i class="ft-edit">  </i>
-                     </a>
-            <a href="show/{{$result->student_id}}" data-toggle="tooltip" title="Show Student">
-                       <i class="ft-eye">  </i>
-                     </a>
+          
+                
+                    <tr> 
 
-                       <button type="submit" class="ft-trash-2 btn btn-danger" data-toggle="tooltip" title="Delete" data-toggle="modal" data-target="#delete"></button> 
+                       <td> {{$result->record_id}}</td>
+                       <td> {{$result->score}}</td>
+                       <td style="color: green"> PASS</td>
+                       <td> {{$result->created_at}}</td>
 
-                    </form>
-                        
-                        
-                </td>
-                <td>{{$result->student_id}}</td>
-                <td>{{$result->last_name.", ".$result->first_name}}</td>
-                <td>{{$result->name}}</td>
-                <td>{{$result->created_at}}</td>
-             
-
-               
-
-
-              </tr>
-                    
+                    </tr>
                 @endforeach
 
 
@@ -114,13 +77,8 @@
 </table>
 
 </div>
+
 @endif
- 
-
-
-
-
-
 </div>
 </div>
 </div>
@@ -128,9 +86,6 @@
 
 
 </div>
-
-
-
 
 
 

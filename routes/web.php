@@ -87,6 +87,12 @@ Route::namespace('Root')->name('root.')->group(function () {
 		 	Route::get('index', 'SectionslistController@index');
 		 	Route::get('show/{id}', 'SectionslistController@show');
 		    Route::get('show/{id}/create', 'SectionslistController@createstudent');
+		    Route::get('show/info/{id}', 'SectionslistController@showinfo');
+
+
+
+		     Route::POST('show/{id}/store', 'SectionslistController@store')->name('store');
+		 
 		 	
 		 
 		 	
