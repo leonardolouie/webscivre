@@ -86,6 +86,7 @@ Route::namespace('Root')->name('root.')->group(function () {
         Route::prefix('sectionlist')->name('sectionlist.')->group(function () {
 		 	Route::get('index', 'SectionslistController@index');
 		 	Route::get('show/{id}', 'SectionslistController@show');
+		    Route::get('show/{id}/create', 'SectionslistController@createstudent');
 		 	
 		 
 		 	

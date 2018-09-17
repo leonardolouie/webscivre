@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Root;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Sections;
+use App\students;
 use DB;
 use Auth;
 use Alert;
@@ -38,6 +39,40 @@ class SectionslistController extends Controller
         $section = DB::table('sections')->where('section_id', $id)->get();
 
         return view('root.sectionlist.show', compact('result','section'));
+
+
+   		}
+         
+
+      public function createstudent($id)
+      {
+
+         $result = DB::table('sections')->where('section_id', $id)->get();
+        return view('root.sectionlist.create', compact('result'));
+
+         }
+
+
+         public function store()
+         {
+
+               //validation if id is existing in students
+
+          $
+
+
+
+         }
+
+
+   		public function showinfo($id)
+
+   		{
+
+
+
+
+
 
 
    		}
